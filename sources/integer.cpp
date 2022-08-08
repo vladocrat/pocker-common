@@ -1,6 +1,7 @@
 #include "integer.h"
 
 #include <QDataStream>
+#include <QIODevice>
 
 Integer::Integer(int value) : val(value) {}
 

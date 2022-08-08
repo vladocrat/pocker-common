@@ -3,6 +3,7 @@
 #include <QDataStream>
 #include <QByteArray>
 #include <QDebug>
+#include <QIODevice>
 
 #include "protocol.h"
 
