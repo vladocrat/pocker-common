@@ -232,6 +232,8 @@ QByteArray Room::serialise(const Room& room)
            << room.password()
            << room.maxPlayerCount();
 
+    qDebug() << arr.size();
+
     return arr;
 }
 
