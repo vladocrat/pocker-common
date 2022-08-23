@@ -16,6 +16,9 @@ public:
     Room& operator=(const Room& other);
     virtual ~Room();
 
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(int playerCount READ playerCount WRITE setPlayerCount NOTIFY playerCountChanged)
+
     enum Status {
         Waiting = 0,
         Playing
@@ -49,6 +52,10 @@ public:
     static Access toAccess(int);
     static Room deserialise(const QByteArray&);
     static QByteArray serialise(const Room&);
+
+signals:
+    void nameChanged();
+    void playerCountChanged();
 
 private:
     int m_id = -1;

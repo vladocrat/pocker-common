@@ -5,8 +5,6 @@
 #include <QDebug>
 #include <QIODevice>
 
-#include "protocol.h"
-
 Room::Room(int id) : m_id(id)
 {
 
@@ -145,7 +143,12 @@ int Room::maxPlayerCount() const
 
 void Room::setName(const QString& name)
 {
+    if (m_name == name) {
+        return;
+    }
+
     m_name = name;
+    emit nameChanged();
 }
 
 void Room::setStatus(Status status)
@@ -155,7 +158,12 @@ void Room::setStatus(Status status)
 
 void Room::setPlayerCount(int playerCount)
 {
+    if (m_playerCount == playerCount) {
+        return;
+    }
+
     m_playerCount = playerCount;
+    emit playerCountChanged();
 }
 
 void Room::setAccess(Access access)
