@@ -18,6 +18,7 @@ static const int CL_CHECK = 16;
 static const int CL_ROOM_CHOICE = 18;
 static const int CL_LEAVE_ROOM = 20;
 static const int CL_CREATE_ROOM = 22;
+static const int CL_REQUEST_ROOMS = 24;
 }; // Client
 
 // SV side commands
