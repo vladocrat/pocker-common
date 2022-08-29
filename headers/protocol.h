@@ -39,6 +39,7 @@ static const int SV_JOINED_SUCCESSFULLY = 23;
 static const int SV_ROOM_UPDATED = 25;
 static const int SV_ROOM_CREATED = 27;
 static const int SV_LIST_OF_ROOMS = 29;
+static const int SV_REGISTERED_SUCCESSFULLY = 31;
 }; // Server
 
 // error handling
