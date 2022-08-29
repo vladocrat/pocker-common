@@ -9,7 +9,7 @@ struct LoginData
     QByteArray serialise() const
     {
         QByteArray arr;
-        QDataStream stream(arr);
+        QDataStream stream(&arr, QIODevice::WriteOnly);
         stream << login << password;
 
         return arr;
