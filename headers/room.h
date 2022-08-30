@@ -30,11 +30,13 @@ public:
         Waiting = 0,
         Playing
     };
+    Q_ENUM(Status)
 
     enum Access {
         Private = 0,
         Public
     };
+    Q_ENUM(Access)
 
     int id() const;
     QString password() const;
@@ -80,7 +82,7 @@ private:
     int m_maxPlayerCount = Globals::MIN_PLAYERS;
     QString m_name = "default";
     Status m_status = Waiting;
-    int m_playerCount = 1;
+    int m_playerCount = 0;
     Access m_access = Public;
     int m_initialBet = Globals::MIN_INITIAL_BET;
     QString m_password = "";
