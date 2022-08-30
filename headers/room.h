@@ -3,6 +3,7 @@
 
 #include <QList>
 #include <QObject>
+#include <QQmlEngine>
 
 #include "Globals.h"
 
@@ -18,6 +19,12 @@ public:
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(int playerCount READ playerCount WRITE setPlayerCount NOTIFY playerCountChanged)
+    Q_PROPERTY(int id READ id WRITE setId NOTIFY idChanged)
+    Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
+    Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
+    Q_PROPERTY(Access access READ access WRITE setAccess NOTIFY accessChanged)
+    Q_PROPERTY(int maxPlayerCount READ maxPlayerCount WRITE setMaxPlayerCount NOTIFY maxPlayerCountChanged)
+    Q_PROPERTY(int initialBet READ initialBet WRITE setInitialBet NOTIFY initialBetChanged)
 
     enum Status {
         Waiting = 0,
@@ -53,9 +60,20 @@ public:
     static Room deserialise(const QByteArray&);
     static QByteArray serialise(const Room&);
 
+    static void registerType()
+    {
+        qmlRegisterType<Room>("Room", 1, 0, "Room");
+    }
+
 signals:
     void nameChanged();
     void playerCountChanged();
+    void passwordChanged();
+    void statusChanged();
+    void accessChanged();
+    void idChanged();
+    void maxPlayerCountChanged();
+    void initialBetChanged();
 
 private:
     int m_id = -1;
